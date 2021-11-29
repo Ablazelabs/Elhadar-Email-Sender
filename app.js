@@ -16,15 +16,16 @@ app.listen(PORT, () => {
 
   // Generate test SMTP service account from ethereal.email
   // Only needed if you don't have a real mail account for testing
+  //let testAccount = await nodemailer.createTestAccount();
 
   // create reusable transporter object using the default SMTP transport
   let trans = nodemailer.createTransport({
-    host: "mail.ablazelabs.com",
+    host: "mail.elhadar.com",
     port: 465,
     secure: true, // true for 465, false for other ports
     auth: {
-      user: "contactus@ablazelabs.com", // generated ethereal user
-      pass: "wende@127ET", // generated ethereal password
+      user: "contactus@elhadar.com", // generated ethereal user
+      pass: "wadeKHSz38AtEF4", // generated ethereal password
     },
   });
 
@@ -53,10 +54,10 @@ app.listen(PORT, () => {
   
       //2. You can configure the object however you want
       const mail = {
-        from: '"Ablazelabs 👻" <contactus@ablazelabs.com>', // sender address
-        to: 'info@ablazelabs.com',
-        subject: "Contact Us",
-        text: `${data.name} <${data.email}> \n${data.message} \n Phone: ${data.phone}`,
+        from: '"Elhadar Contact Us 👻" <contactus@elhadar.com>', // sender address
+        to: 'info@elhadar.com',
+        subject: `${data.subject}`,
+        text: `${data.name} <${data.email}> \n${data.message}`,
       };
 
       //3.send the email
